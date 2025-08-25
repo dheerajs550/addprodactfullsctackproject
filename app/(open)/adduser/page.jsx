@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import "../globals.css";
 import { apiData } from '@/apiroute/page';
+import { BASE_URL } from '@/lib/apiurl';
 
 
 function page() {
@@ -13,7 +14,7 @@ function page() {
         const data ={ method:"Post",
                       body:JSON.stringify({name, age, email})
                     }
-      let respone = await fetch(`http://localhost:3000/api/users`,data);
+      let respone = await fetch(`${BASE_URL}/users`,data);
 
         respone= await respone.json();
         if(respone.success){
